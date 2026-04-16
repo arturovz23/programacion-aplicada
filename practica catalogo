@@ -1,9 +1,9 @@
+// Ruta centralizada — fácil de cambiar si el maestro quiere otra ubicación
+string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "productos.csv");
+
+
 private void btnGuardar_Click(object sender, EventArgs e)
 {
-     // Ruta centralizada — fácil de cambiar si el maestro quiere otra ubicación
-     string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "productos.csv");
-
-
 
     // Validar que los campos no estén vacíos
     if (txtCodigo.Text == "" || txtNombre.Text == "" || txtPrecio.Text == "")
