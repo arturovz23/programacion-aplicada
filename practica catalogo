@@ -1,7 +1,9 @@
 private void btnGuardar_Click(object sender, EventArgs e)
 {
-    // Definir la ruta donde se guardará el archivo
-    string ruta = @"C:\productos.csv";
+     // Ruta centralizada — fácil de cambiar si el maestro quiere otra ubicación
+     string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "productos.csv");
+
+
 
     // Validar que los campos no estén vacíos
     if (txtCodigo.Text == "" || txtNombre.Text == "" || txtPrecio.Text == "")
