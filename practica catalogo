@@ -1,0 +1,52 @@
+private void btnGuardar_Click(object sender, EventArgs e)
+{
+    // Definir la ruta donde se guardará el archivo
+    string ruta = @"C:\productos.csv";
+
+    // Validar que los campos no estén vacíos
+    if (txtCodigo.Text == "" || txtNombre.Text == "" || txtPrecio.Text == "")
+    {
+        MessageBox.Show("Por favor llena todos los campos.");
+        return;
+    }
+
+    // Construir la línea en formato CSV
+    // ¿Recuerdas cómo se separan los datos en un CSV?
+    string linea = txtCodigo.Text + "," +
+                   _______.Text + "," +
+                   _______.Text;
+
+    // Usar StreamWriter en modo Append (true) para NO borrar los datos anteriores
+    using (StreamWriter sw = new StreamWriter(ruta, _______))
+    {
+        sw._______(linea);
+    }
+
+    MessageBox.Show("Producto guardado correctamente.");
+    btnLimpiar_Click(sender, e);
+}
+
+
+//Leer archivos
+private void btnCargar_Click(object sender, EventArgs e)
+{
+    string ruta = @"C:\productos.csv";
+
+    // Limpiar el DataGridView antes de recargar
+    dgvProductos._______.Clear();
+
+    using (StreamReader sr = new StreamReader(ruta))
+    {
+        // Leer mientras NO se llegue al final del archivo
+        while (!sr._______.________)
+        {
+            string linea = sr._______();
+
+            // Separar la línea usando el carácter coma
+            string[] partes = linea._______(',');
+
+            // Agregar la fila al DataGridView
+            dgvProductos.Rows.Add(partes[0], partes[1], partes[2]);
+        }
+    }
+}
